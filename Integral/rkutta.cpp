@@ -14,8 +14,8 @@ int main() {
 	double res = rKutta4(x0, y0, h, n, &f);
 	double err = fabs(real - res);
 
-	std::cout << std::endl << "Resultado.......: " << res << std::endl;
-	std::cout << "Erro............: " << err << std::endl << std::endl;
+	std::cout << std::endl << "Velocidade: " << res << std::endl;
+	std::cout << "Erro......: " << err << std::endl << std::endl;
 }
 
 double f(double x, double y) {
