@@ -9,9 +9,9 @@ int main() {
 		   h = 0.5,
 		   real = 49.375;
 
-	std::cout << std::fixed << std::setprecision(5);
+	std::cout << std::fixed << std::setprecision(10);
 
-	double res = eulerAp(x0, y0, h, n, &f);
+	double res = rKutta4(x0, y0, h, n, &f);
 	double err = fabs(real - res);
 
 	std::cout << std::endl << "Resultado.......: " << res << std::endl;
