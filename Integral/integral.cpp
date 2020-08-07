@@ -37,6 +37,24 @@ double simpson(std::vector<double> y, int n, double h) {
 	return h/3 * (y[0] + 2*pair + 4*odd + y[n]);
 }
 
+double eulerF(double x, double y, double h, double (*f)(double, double)) {
+	return y + h/2 * (f(x, y) + f(x+h, y + h*f(x, y)));
+}
+
+double eulerAp(double x0, double y0, double h, int n, double (*f)(double, double)) {
+	int i = 0;
+	double y = y0;
+
+	std::cout << "y" << i++ << " = " << y << std::endl;
+
+	for(double x = x0; x < n; x += h, i++) {
+		y = eulerF(x, y, h, f);
+		std::cout << "y" << i << " = " << y << std::endl;
+	}
+
+	return y;
+}
+
 void printArr(std::vector<double> arr) {
     std::cout << "{";
     for(int i = 0 ; i < arr.size(); i++)
